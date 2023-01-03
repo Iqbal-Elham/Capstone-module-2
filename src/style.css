@@ -444,6 +444,7 @@ textarea::placeholder {
     width: 80%;
     left: 42%;
   }
+
   .title-description {
     margin: 0 4rem;
   }
@@ -458,7 +459,6 @@ textarea::placeholder {
   .add-comments h3 {
     text-align: center;
   }
-
 }
 
 @media screen and (min-width: 992px) {
