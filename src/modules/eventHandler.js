@@ -1,4 +1,12 @@
-import { navToggle, navLinks } from './constants.js';
+import {
+  navToggle, navLinks, movieCloseBtn, popupSection,
+} from './constants.js';
+
+const closePopup = () => {
+  movieCloseBtn.addEventListener('click', () => {
+    popupSection.classList.add('hide-movie');
+  });
+};
 
 const showMenuItems = () => {
   navToggle.addEventListener('click', () => {
@@ -6,4 +14,4 @@ const showMenuItems = () => {
   });
 };
 
-export default showMenuItems;
+export { showMenuItems, closePopup };
