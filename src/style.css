@@ -1,0 +1,82 @@
+:root {
+  --color-grey-1: hsl(210, 22%, 49%);
+  --color-grey-2: hsl(209, 23%, 60%);
+  --color-grey-3: hsl(211, 27%, 70%);
+  --color-grey-4: hsl(210, 31%, 80%);
+  --color-grey-5: hsl(212, 33%, 89%);
+  --color-grey-6: hsl(210, 36%, 96%);
+  --color-white: #fff;
+  --color-indigo: #7d3c98;
+  --color-red-dark: hsl(360, 67%, 44%);
+  --color-red-light: hsl(360, 71%, 66%);
+  --color-green-dark: hsl(125, 67%, 44%);
+  --color-green-light: hsl(125, 71%, 66%);
+  --color-black: #222;
+  --ff-primary: "Poppins", sans-serif;
+  --ff-secondary: "Roboto", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+/* Global Styles */
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
