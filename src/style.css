@@ -229,7 +229,6 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  margin: 0 2rem;
   gap: 1.9rem;
 }
 
@@ -251,9 +250,8 @@ nav {
 
 .btn-container .btn:hover {
   background: rgb(4, 32, 65);
-  border: var(--clr-indigo);
+  border: var(--color-indigo);
   color: var(--color-white);
-  margin-left: -0.6rem;
   transform: scale(0.9);
 }
 
@@ -262,14 +260,10 @@ nav {
   background: black;
 }
 
-.popup-container .popup-img {
+.popup-img,
+.reservation-img {
   margin-top: 1rem;
   padding-top: 2rem;
-}
-
-.popup-container .popup-img img {
-  width: 100%;
-  overflow: hidden;
 }
 
 .popup-section::-webkit-scrollbar {
@@ -281,25 +275,31 @@ nav {
   border-radius: 2rem;
 }
 
-.title-description {
-  margin: 2rem;
+.title-description,
+.reservation-description {
+  margin: 1rem;
   text-align: center;
 }
 
-.title-description h3 {
+.title-description h3,
+.reservation-description h3 {
+  color: #172b4d;
   text-align: center;
   font-size: 1.7rem;
+  padding: 1rem;
 }
 
-.popup-description {
+.popup-description,
+.reservations {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
-.popup-container {
+.popup-container,
+.reservation-container {
   /* display: none; */
-  background: #f7f7f9;
+  background: #e0e0e6;
   position: fixed;
   top: 55%;
   left: 42%;
@@ -313,11 +313,10 @@ nav {
   z-index: 99;
   padding: 2rem 0;
   margin: 0 2rem 2rem 2rem;
-  padding-bottom: 2rem;
 }
 
 .popup-comments {
-  margin: 1.5rem;
+  margin-top: 1.5rem;
   text-align: center;
 }
 
@@ -325,16 +324,16 @@ nav {
   text-align: center;
   font-size: 1.6rem;
   color: #172b4d;
-  margin-bottom: 0.8rem;
 }
 
-.add-comments {
+.add-comments,
+.add-reservation {
   margin: 1.5rem;
 }
 
 .input-field {
+  width: 100%;
   display: flex;
-  align-items: center;
   padding: 1.2rem;
 }
 
@@ -370,7 +369,8 @@ textarea::placeholder {
   border: 1px solid #384404;
 }
 
-.movie-close-btn {
+.comments-close-btn,
+.reservation-close-btn {
   position: absolute;
   right: 1rem;
   top: 1rem;
@@ -387,7 +387,11 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.hide-movie {
+.popup-section.hide-movie {
+  display: none;
+}
+
+.reservation-section.hide-reservation {
   display: none;
 }
 
@@ -399,9 +403,11 @@ textarea::placeholder {
 
 .footer {
   background: var(--color-white);
+  margin-bottom: 2rem;
 }
 
 .footer-container {
+  border: 0.5px solid rgb(119, 116, 116);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -435,28 +441,32 @@ textarea::placeholder {
 
   .btn-container {
     padding: 1rem;
-    margin: 0 2rem;
   }
 
-  .popup-container {
+  .popup-container,
+  .reservation-container {
     margin: 0 4rem 2rem 4rem;
     padding-bottom: 2rem;
     width: 80%;
     left: 42%;
   }
 
-  .title-description {
+  .title-description,
+  .reservation-description {
     margin: 0 4rem;
   }
 
-  .add-comments {
+  .add-comments,
+  .add-reservation {
     display: flex;
-    margin: 0 5rem;
+    margin: 0 2rem;
     flex-direction: column;
     padding: 1.2rem 2rem;
   }
 
-  .add-comments h3 {
+  .add-comments h3,
+  .add-reservation h3 {
+    color: #222;
     text-align: center;
   }
 }
@@ -542,6 +552,12 @@ textarea::placeholder {
     margin: 10rem 8rem 2rem;
   }
 
+  .popup-img img,
+  .reservation-img img {
+    width: 100%;
+    overflow: hidden;
+  }
+
   .box .box-img img {
     margin: 0;
     height: 20rem;
@@ -557,40 +573,48 @@ textarea::placeholder {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .popup-section {
+  .popup-section,
+  .reservation-section {
     width: 50%;
   }
 
-  .popup-container {
+  .popup-container,
+  .reservation-container {
     width: 50%;
     left: 50%;
     margin: 2rem;
     padding: 2rem;
   }
 
-  .popup-container .popup-img {
+  .popup-img,
+  .reservation-img {
     height: 50rem;
     overflow: hidden;
   }
 
-  .title-description h3 {
+  .title-description h3,
+  .reservation-description h3 {
     margin: 2rem 0 0;
     color: #222;
   }
 
-  .popup-description {
-    margin: 0 1rem;
+  .popup-description,
+  .reservations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
   }
 
-  .popup-description p {
+  .popup-description p,
+  .reservations p {
     border-bottom: 0.3px solid #f7f7f9;
     font-size: 1.3rem;
     color: #222;
   }
 
   .list-of-comments {
-    margin: 2rem 2rem 0;
-    padding: 1.2rem 4rem;
+    margin: 0 2rem 0;
+    padding: 1.2rem 2rem;
   }
 
   .list-of-comments p {
@@ -600,14 +624,15 @@ textarea::placeholder {
     padding: 0.6rem;
   }
 
-  .add-comments {
+  .add-comments,
+  .add-reservation {
     display: flex;
     flex-direction: column;
     padding: 1.2rem 2rem;
   }
 
-  .add-comments h3 {
-    color: #222;
+  .add-comments h3,
+  .add-reservation h3 {
     text-align: center;
     margin-top: 2rem;
   }
