@@ -257,6 +257,143 @@ nav {
   transform: scale(0.9);
 }
 
+/* POPUP SECTION */
+.popup-section {
+  background: black;
+}
+
+.popup-container .popup-img {
+  margin-top: 1rem;
+  padding-top: 2rem;
+}
+
+.popup-container .popup-img img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.popup-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.popup-section::-webkit-scrollbar-thumb {
+  background: #f0f0f0;
+  border-radius: 2rem;
+}
+
+.title-description {
+  margin: 2rem;
+  text-align: center;
+}
+
+.title-description h3 {
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.popup-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.popup-container {
+  /* display: none; */
+  background: #f7f7f9;
+  position: fixed;
+  top: 55%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  color: var(--color-black);
+  border-radius: 1rem;
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+  opacity: 1;
+  z-index: 99;
+  padding: 2rem 0;
+  margin: 0 2rem 2rem 2rem;
+  padding-bottom: 2rem;
+}
+
+.popup-comments {
+  margin: 1.5rem;
+  text-align: center;
+}
+
+.popup-comments h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #172b4d;
+  margin-bottom: 0.8rem;
+}
+
+.add-comments {
+  margin: 1.5rem;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+.input-field .input {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 15px 38px 15px 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #172b4d;
+}
+
+.input-field .textarea {
+  resize: none;
+  height: 140px;
+}
+
+.input-field .input:focus {
+  border: 1px solid #384404;
+}
+
+.movie-close-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 2rem;
+  background: rgb(167, 127, 127);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.hide-movie {
+  display: none;
+}
+
+.box-container.movie-detail {
+  opacity: 0.1;
+}
 
 /* FOOTER SECTION */
 
@@ -298,8 +435,30 @@ nav {
 
   .btn-container {
     padding: 1rem;
+    margin: 0 2rem;
+  }
+
+  .popup-container {
+    margin: 0 4rem 2rem 4rem;
+    padding-bottom: 2rem;
+    width: 80%;
+    left: 42%;
+  }
+  .title-description {
     margin: 0 4rem;
   }
+
+  .add-comments {
+    display: flex;
+    margin: 0 5rem;
+    flex-direction: column;
+    padding: 1.2rem 2rem;
+  }
+
+  .add-comments h3 {
+    text-align: center;
+  }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -380,7 +539,7 @@ nav {
 
   /* Movie Section */
   .movie-section {
-    margin: 10rem 6rem 2rem;
+    margin: 10rem 8rem 2rem;
   }
 
   .box .box-img img {
@@ -396,6 +555,74 @@ nav {
 
   .box-container {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .popup-section {
+    width: 50%;
+  }
+
+  .popup-container {
+    width: 50%;
+    left: 50%;
+    margin: 2rem;
+    padding: 2rem;
+  }
+
+  .popup-container .popup-img {
+    height: 50rem;
+    overflow: hidden;
+  }
+
+  .title-description h3 {
+    margin: 2rem 0 0;
+    color: #222;
+  }
+
+  .popup-description {
+    margin: 0 1rem;
+  }
+
+  .popup-description p {
+    border-bottom: 0.3px solid #f7f7f9;
+    font-size: 1.3rem;
+    color: #222;
+  }
+
+  .list-of-comments {
+    margin: 2rem 2rem 0;
+    padding: 1.2rem 4rem;
+  }
+
+  .list-of-comments p {
+    color: #222;
+    border-bottom: 0.3px solid #d5dbd9;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+  }
+
+  .add-comments {
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 2rem;
+  }
+
+  .add-comments h3 {
+    color: #222;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .input {
+    outline: none;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    font-size: 1.2rem;
   }
 
   .footer-container {
