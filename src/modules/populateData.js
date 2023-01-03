@@ -27,11 +27,12 @@ const populateData = async () => {
                 <button type="button" class="btn">Reservations</button>
               </div>
             </div>`;
-    const modal = parser.parseFromString(domElements, 'text/html').body.firstChild;
-    fragment.appendChild(modal);
+    const box = parser.parseFromString(domElements, 'text/html').body.firstChild;
+    console.log(box);
+    fragment.appendChild(box);
   });
   movieDetail.appendChild(fragment);
-  const counter = countMovie('modal');
+  const counter = countMovie('box');
   shownMovies.innerText = `Shows(${counter})`;
 };
 
