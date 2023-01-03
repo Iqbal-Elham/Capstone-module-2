@@ -28,7 +28,6 @@ const populateData = async () => {
               </div>
             </div>`;
     const box = parser.parseFromString(domElements, 'text/html').body.firstChild;
-    console.log(box);
     fragment.appendChild(box);
   });
   movieDetail.appendChild(fragment);
