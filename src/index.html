@@ -59,32 +59,13 @@
     <!-- MOVIE SECTION  -->
     <section class="movie-section" id="movies">
       <div class="box-container">
-        <!-- <div class="box">
-          <div class="box-img">
-            <img
-              src="./assets/favicon-images/wakanda-forever.webp"
-              alt="wakanda-forever"
-            />
-          </div>
-          <div class="box-desc">
-            <h3>Movie 1</h3>
-            <div class="likes">
-              <a href="#"><i class="fa-regular fa-heart"></i></a>
-              <small>5 likes</small>
-            </div>
-          </div>
-          <div class="btn-container">
-            <button type="button" class="btn btn-comments" id="btn-comments">
-              comments
-            </button>
-            <button type="button" class="btn">Reservation</button>
-          </div>
-        </div> -->
+        
       </div>
     </section>
-    <section class="popup-section">
+    <!-- COMMENTS SECTION -->
+    <section class="popup-section" id="comments">
       <div class="popup-container">
-        <button type="button" class="btn movie-close-btn" id="movie-close-btn">
+        <button type="button" class="btn comments-close-btn" id="movie-close-btn">
           <i class="fas fa-times"></i>
         </button>
         <div class="popup-img">
@@ -134,6 +115,47 @@
             <button type="submit" class="btn" id="submit">Submit</button>
           </div>
         </form>
+        </div>
+    </section>
+    <!-- RESERVATION SECTION -->
+    <section class="reservation-section" id="reservations">
+      <div class="reservation-container">
+        <button type="button" class="btn reservation-close-btn" id="close-reservation">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="reservation-img">
+          <img
+            src="./assets/favicon-images/wakanda-forever.webp"
+            alt="wakanda-forever"
+          />
+        </div>
+        <div class="reservation-description">
+          <h3>Movie Title</h3>
+          <div class="reservations">
+            <p>Genre 1: something</p>
+            <p>Duration 1: something</p>
+            <p>Rating 1: something</p>
+          </div>
+        </div>
+        <div class="popup-comments">
+          <h3>Reservations(2)</h3>
+          <div class="list-of-comments">
+            <p>01/03/2023: Someone Reserved yesterday</p>
+            <p>01/03/2023: Someone Reserved today</p>
+          </div>
+        </div>
+        <form method="post" class="add-reservation">
+          <h3>Reserve</h3>
+          <div class="input-field"><input type="text" placeholder="Your name" class="input" name="name" id="name"/>
+          </div>
+          <div class="input-field"><textarea name="text-area" id="text-area" class="input"
+              cols="30" rows="5" placeholder="Reserve"></textarea>
+          </div>
+          <div class="btn-container">
+            <button type="submit" class="btn" id="reserve">Reserve</button>
+          </div>
+        </form>
+      </div>
     </section>
     <!-- FOOTER SECTION  -->
     <footer class="footer">
