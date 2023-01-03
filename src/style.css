@@ -186,6 +186,7 @@ nav {
 
 .box-container .box {
   padding-bottom: 1rem;
+  background: black;
   background: var(--color-white);
   border-radius: 0.5rem;
   border: 1px solid var(--color-indigo);
@@ -199,6 +200,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .box .box-img img {
@@ -266,7 +268,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto 42px;
+  margin: 2rem 42px;
+  padding: 2rem 0;
   gap: 2rem;
 }
 
@@ -282,10 +285,9 @@ nav {
 
 @media screen and (min-width: 768px) {
   .box .box-img img {
-    padding: 2rem;
+    margin: 0 2rem;
     border-radius: 0.7rem;
     height: 40rem;
-    margin: 0 2rem;
     width: 100%;
   }
 
@@ -382,15 +384,13 @@ nav {
   }
 
   .box .box-img img {
-    padding: 1rem;
-    margin: 0 2rem;
-    border-radius: 0.7rem;
-    height: 25rem;
+    margin: 0;
+    height: 20rem;
     width: 100%;
   }
 
   .box .box-desc {
-    margin: 1rem 2rem;
+    margin: 0 2rem;
     padding: 0.5rem 1rem;
   }
 
