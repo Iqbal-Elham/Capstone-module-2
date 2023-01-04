@@ -1,11 +1,14 @@
 import {
-  navToggle, navLinks, movieCloseBtn, popupSection, reservationSection, reservationCloseBtn,
+  navToggle, navLinks, popupSection, reservationSection, reservationCloseBtn,
   // btn,
 } from './constants.js';
 
 const closePopup = () => {
-  movieCloseBtn.addEventListener('click', () => {
-    popupSection.style.display = 'none';
+  popupSection.addEventListener('click', (e) => {
+    if (e.target.className === 'btn comments-close-btn' || e.target.className === 'fas fa-times') {
+      // reservationSection.classList.add('hide-reservation');
+      popupSection.style.display = 'none';
+    }
   });
 };
 
@@ -21,18 +24,8 @@ const showMenuItems = () => {
   });
 };
 
-// const displayComment = () => {
-//   const btn = document.querySelectorAll('.btn-comments');
-//   btn.forEach((el) => {
-//     el.addEventListener('click', () => {
-//       popupSection.style.display = 'block';
-//     });
-//   });
-// };
-
 export {
   showMenuItems,
   closePopup,
   closeReservation,
-  // displayComment,
 };
