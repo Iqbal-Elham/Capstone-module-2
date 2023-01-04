@@ -8,3 +8,5 @@ export const popupSection = document.querySelector('.popup-section');
 export const reservationSection = document.querySelector('.reservation-section');
 export const movieURL = 'https://api.tvmaze.com/search/shows?q=';
 export const reservationsURL = 'https://api.tvmaze.com/lookup/shows?imdb=';
+export const postURLreservations = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/xK5LmH1OlvUhFH39ssaa/reservations/';
+export const getURLreservation = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/xK5LmH1OlvUhFH39ssaa/reservations?item_id=';

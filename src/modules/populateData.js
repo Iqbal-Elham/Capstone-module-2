@@ -89,7 +89,7 @@ const populateData = async () => {
         const startReservation = document.getElementById('startDate');
         const endReservation = document.getElementById('endDate');
         if (nameReservation.value && startReservation.value && endReservation.value) {
-          dataForm(event, nameReservation.value, startReservation.value, endReservation.value);
+        dataForm(event, el.id, nameReservation.value, startReservation.value, endReservation.value);
         } else {
           event.preventDefault();
           alert('Fill all fields')
