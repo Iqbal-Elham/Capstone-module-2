@@ -8,11 +8,11 @@ const closePopup = () => {
   });
 };
 
-const closeReservation = () => {
-  reservationCloseBtn.addEventListener('click', () => {
-    reservationSection.classList.add('hide-reservation');
-  });
-};
+// const closeReservation = () => {
+//   reservationCloseBtn.addEventListener('click', () => {
+//     reservationSection.classList.add('hide-reservation');
+//   });
+// };
 
 const showMenuItems = () => {
   navToggle.addEventListener('click', () => {
@@ -20,4 +20,4 @@ const showMenuItems = () => {
   });
 };
 
-export { showMenuItems, closePopup, closeReservation };
+export { showMenuItems, closePopup};
