@@ -11,4 +11,3 @@ populateData();
 showMenuItems();
 closePopup();
 closeReservation();
-
