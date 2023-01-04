@@ -1,5 +1,5 @@
 import {
-  navToggle, navLinks, movieCloseBtn, popupSection, reservationSection,
+  navToggle, navLinks, popupSection, reservationSection,
 } from './constants.js';
 
 const closePopup = () => {
