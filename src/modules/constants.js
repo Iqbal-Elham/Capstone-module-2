@@ -12,3 +12,6 @@ export const selectedCommentUrl = 'https://api.tvmaze.com/lookup/shows?thetvdb='
 export const commentURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/xK5LmH1OlvUhFH39ssaa/comments';
 export const btn = document.querySelector('.btn-comments');
 export const reservationsURL = 'https://api.tvmaze.com/lookup/shows?imdb=';
+export const commentForm = document.querySelector('.add-comments');
+export const commenter = document.querySelector('#commenter-name');
+export const commentText = document.querySelector('#comment-text');

@@ -5,7 +5,6 @@ import {
 const closePopup = () => {
   popupSection.addEventListener('click', (e) => {
     if (e.target.className === 'btn comments-close-btn' || e.target.className === 'fas fa-times') {
-      // reservationSection.classList.add('hide-reservation');
       popupSection.style.display = 'none';
     }
   });
