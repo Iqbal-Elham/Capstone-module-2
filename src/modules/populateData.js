@@ -96,7 +96,7 @@ const populateData = async () => {
       const scheduleReservs = await fetchSchedule(el.id);
       let scheduleGenerator = '';
       scheduleReservs.forEach((element) => {
-        scheduleGenerator += `<p>${element.date_start}-${element.date_end} by ${element.username}</p>`;
+        scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
       });
       const listOfReservations = document.querySelector('.list-of-reservations');
       listOfReservations.innerHTML = scheduleGenerator;
