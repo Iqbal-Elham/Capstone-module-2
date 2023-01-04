@@ -62,9 +62,7 @@ const populateData = async () => {
         </div>
         <div class="popup-reservations">
           <h3>Reservations(2)</h3>
-          <div class="list-of-comments">
-            <p>01/03/2023: Someone Reserved yesterday</p>
-            <p>01/03/2023: Someone Reserved today</p>
+          <div class="list-of-reservations">
           </div>
         </div>
         <form method="post" class="add-reservation">
@@ -95,10 +93,15 @@ const populateData = async () => {
           event.preventDefault();
           alert('Fill all fields')
         }
-        
+
       });
       const scheduleReservs = await fetchSchedule(el.id);
-
+      let scheduleGenerator ="";
+      scheduleReservs.forEach(element => {
+        scheduleGenerator+=`<p>${element.date_start}-${element.date_end} by ${element.username}</p>`;
+      });
+      const listOfReservations = document.querySelector('.list-of-reservations');
+      listOfReservations.innerHTML = scheduleGenerator;
     });
   });
 };

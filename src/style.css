@@ -614,12 +614,14 @@ textarea::placeholder {
     color: #222;
   }
 
-  .list-of-comments {
+  .list-of-comments,
+  .list-of-reservations {
     margin: 0 2rem 0;
     padding: 1.2rem 2rem;
   }
 
-  .list-of-comments p {
+  .list-of-comments p,
+  .list-of-reservations p {
     color: #222;
     border-bottom: 0.3px solid #d5dbd9;
     font-size: 1.1rem;
