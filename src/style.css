@@ -332,10 +332,6 @@ nav {
   margin: 0 2rem 2rem 2rem;
 }
 
-.popup-container
-{
-  /* display: block; */
-}
 
 .popup-comments {
   margin-top: 1.5rem;
@@ -409,9 +405,6 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.popup-section.hide-movie {
-  /* display: none; */
-}
 
 .reservation-section.hide-reservation {
   display: none;
