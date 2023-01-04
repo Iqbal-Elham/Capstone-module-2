@@ -4,10 +4,12 @@ import countMovie from './countMovies.js';
 
 const populateData = async () => {
   const data = await fetchMovie('s');
+  console.log(data)
   const fragment = new DocumentFragment();
   const parser = new DOMParser();
   data.forEach((element, index) => {
     const { show } = element;
+    console.log(show)
     const domElements = `
             <div class="box" data-id=${element.show.id}>
               <div class="box-img">
@@ -24,7 +26,7 @@ const populateData = async () => {
                 <button class="btn btn-comments" type="button" id=${show.externals.thetvdb}>
                   comments
               </button>
-                <button type="button" class="btn">Reservations</button>
+                <button type="button" class="btn btn-reservations" id="${element.show.externals.thetvdb}">Reservations</button>
               </div>
             </div>`;
     const box = parser.parseFromString(domElements, 'text/html').body.firstChild;
