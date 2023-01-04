@@ -71,10 +71,10 @@ const populateData = async () => {
           <input type="text" placeholder="Your name" class="input" name="name" id="nameReservation"/>
           </div>
           <div class="input-field">
-          <input type="text" placeholder="Start date" class="input" name="startDate" id="startDate" required pattern="\d{4}-\d{2}-\d{2}"/>
+          <input type="text" placeholder="Start date" class="input" name="startDate" id="startDate"/>
           </div>
           <div class="input-field">
-          <input type="text" placeholder="End date" class="input" name="endDate" id="endDate" required pattern="\d{4}-\d{2}-\d{2}"/>
+          <input type="text" placeholder="End date" class="input" name="endDate" id="endDate"/>
           </div>
           <div class="btn-container">
             <button type="submit" class="btn" id="reserve">Reserve</button>
@@ -83,22 +83,20 @@ const populateData = async () => {
       </div>`;
       reservationSection.innerHTML = reservsGenerator;
       const reserveSubmit = document.getElementById('reserve');
-      reserveSubmit.addEventListener('click', function (event) {
-        const nameReservation = document.getElementById('nameReservation');
-        const startReservation = document.getElementById('startDate');
-        const endReservation = document.getElementById('endDate');
-        if (nameReservation.value && startReservation.value && endReservation.value) {
-        dataForm(event, el.id, nameReservation.value, startReservation.value, endReservation.value);
+      reserveSubmit.addEventListener('click', (event) => {
+        const nameReservation = document.getElementById('nameReservation').value;
+        const startReservation = document.getElementById('startDate').value;
+        const endReservation = document.getElementById('endDate').value;
+        if (nameReservation && startReservation && endReservation) {
+          dataForm(event, el.id, nameReservation, startReservation, endReservation);
         } else {
           event.preventDefault();
-          alert('Fill all fields')
         }
-
       });
       const scheduleReservs = await fetchSchedule(el.id);
-      let scheduleGenerator ="";
-      scheduleReservs.forEach(element => {
-        scheduleGenerator+=`<p>${element.date_start}-${element.date_end} by ${element.username}</p>`;
+      let scheduleGenerator = '';
+      scheduleReservs.forEach((element) => {
+        scheduleGenerator += `<p>${element.date_start}-${element.date_end} by ${element.username}</p>`;
       });
       const listOfReservations = document.querySelector('.list-of-reservations');
       listOfReservations.innerHTML = scheduleGenerator;
