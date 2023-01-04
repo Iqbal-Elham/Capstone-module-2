@@ -1,10 +1,11 @@
 import {
   navToggle, navLinks, movieCloseBtn, popupSection, reservationSection, reservationCloseBtn,
+  // btn,
 } from './constants.js';
 
 const closePopup = () => {
   movieCloseBtn.addEventListener('click', () => {
-    popupSection.classList.add('hide-movie');
+    popupSection.style.display = 'none';
   });
 };
 
@@ -20,4 +21,18 @@ const showMenuItems = () => {
   });
 };
 
-export { showMenuItems, closePopup, closeReservation };
+// const displayComment = () => {
+//   const btn = document.querySelectorAll('.btn-comments');
+//   btn.forEach((el) => {
+//     el.addEventListener('click', () => {
+//       popupSection.style.display = 'block';
+//     });
+//   });
+// };
+
+export {
+  showMenuItems,
+  closePopup,
+  closeReservation,
+  // displayComment,
+};
