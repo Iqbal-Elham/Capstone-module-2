@@ -66,11 +66,15 @@ const populateData = async () => {
           </div>
         </div>
         <form method="post" class="add-reservation">
-          <h3>Reserve</h3>
-          <div class="input-field"><input type="text" placeholder="Your name" class="input" name="name" id="name"/>
+          <h3>Add a reservation</h3>
+          <div class="input-field">
+          <input type="text" placeholder="Your name" class="input" name="name" id="name"/>
           </div>
-          <div class="input-field"><textarea name="text-area" id="text-area" class="input"
-              cols="30" rows="5" placeholder="Reserve"></textarea>
+          <div class="input-field">
+          <input type="text" placeholder="Start date" class="input" name="startDate" id="startDate"/>
+          </div>
+          <div class="input-field">
+          <input type="text" placeholder="End date" class="input" name="endDate" id="endDate"/>
           </div>
           <div class="btn-container">
             <button type="submit" class="btn" id="reserve">Reserve</button>
