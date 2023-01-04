@@ -3,6 +3,7 @@ import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
 import dataForm from './dataForm.js';
+import fetchSchedule from './fetchSchedule.js';
 
 const populateData = async () => {
   const data = await fetchMovie('s');
@@ -72,10 +73,10 @@ const populateData = async () => {
           <input type="text" placeholder="Your name" class="input" name="name" id="nameReservation"/>
           </div>
           <div class="input-field">
-          <input type="date" placeholder="Start date" class="input" name="startDate" id="startDate"/>
+          <input type="text" placeholder="Start date" class="input" name="startDate" id="startDate" required pattern="\d{4}-\d{2}-\d{2}"/>
           </div>
           <div class="input-field">
-          <input type="date" placeholder="End date" class="input" name="endDate" id="endDate"/>
+          <input type="text" placeholder="End date" class="input" name="endDate" id="endDate" required pattern="\d{4}-\d{2}-\d{2}"/>
           </div>
           <div class="btn-container">
             <button type="submit" class="btn" id="reserve">Reserve</button>
@@ -94,7 +95,10 @@ const populateData = async () => {
           event.preventDefault();
           alert('Fill all fields')
         }
+        
       });
+      const scheduleReservs = await fetchSchedule(el.id);
+
     });
   });
 };
