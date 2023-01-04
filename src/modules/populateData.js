@@ -72,10 +72,10 @@ const populateData = async () => {
           <input type="text" placeholder="Your name" class="input" name="name" id="nameReservation"/>
           </div>
           <div class="input-field">
-          <input type="text" placeholder="Start date" class="input" name="startDate" id="startDate"/>
+          <input type="date" placeholder="Start date" class="input" name="startDate" id="startDate"/>
           </div>
           <div class="input-field">
-          <input type="text" placeholder="End date" class="input" name="endDate" id="endDate"/>
+          <input type="date" placeholder="End date" class="input" name="endDate" id="endDate"/>
           </div>
           <div class="btn-container">
             <button type="submit" class="btn" id="reserve">Reserve</button>
