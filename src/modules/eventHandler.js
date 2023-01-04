@@ -1,6 +1,5 @@
 import {
-  navToggle, navLinks, popupSection, reservationSection, reservationCloseBtn,
-  // btn,
+  navToggle, navLinks, movieCloseBtn, popupSection, reservationSection,
 } from './constants.js';
 
 const closePopup = () => {
@@ -13,8 +12,10 @@ const closePopup = () => {
 };
 
 const closeReservation = () => {
-  reservationCloseBtn.addEventListener('click', () => {
-    reservationSection.classList.add('hide-reservation');
+  reservationSection.addEventListener('click', (e) => {
+    if (e.target.className === 'btn reservation-close-btn' || e.target.className === 'fas fa-times') {
+      reservationSection.classList.add('hide-reservation');
+    }
   });
 };
 
