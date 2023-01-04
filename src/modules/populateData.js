@@ -2,6 +2,7 @@ import { movieDetail, shownMovies, reservationSection } from './constants.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
+import dataForm from './dataForm.js';
 
 const populateData = async () => {
   const data = await fetchMovie('s');
@@ -68,7 +69,7 @@ const populateData = async () => {
         <form method="post" class="add-reservation">
           <h3>Add a reservation</h3>
           <div class="input-field">
-          <input type="text" placeholder="Your name" class="input" name="name" id="name"/>
+          <input type="text" placeholder="Your name" class="input" name="name" id="nameReservation"/>
           </div>
           <div class="input-field">
           <input type="text" placeholder="Start date" class="input" name="startDate" id="startDate"/>
@@ -82,6 +83,18 @@ const populateData = async () => {
         </form>
       </div>`;
       reservationSection.innerHTML = reservsGenerator;
+      const reserveSubmit = document.getElementById('reserve');
+      reserveSubmit.addEventListener('click', function (event) {
+        const nameReservation = document.getElementById('nameReservation');
+        const startReservation = document.getElementById('startDate');
+        const endReservation = document.getElementById('endDate');
+        if (nameReservation.value && startReservation.value && endReservation.value) {
+          dataForm(event, nameReservation.value, startReservation.value, endReservation.value);
+        } else {
+          event.preventDefault();
+          alert('Fill all fields')
+        }
+      });
     });
   });
 };
