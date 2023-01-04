@@ -3,7 +3,7 @@ import {
   shownMovies,
   popupSection,
   selectedCommentUrl,
-  reservationSection
+  reservationSection,
 } from './constants.js';
 
 import fetchMovie from './fetchMovies.js';
@@ -101,6 +101,8 @@ const populateData = async () => {
       </form>
       </div>`;
       popupSection.innerHTML = displayCom;
+     });
+  });
   document.querySelectorAll('.btn-reservation').forEach((el) => {
     el.addEventListener('click', async () => {
       const reservs = await fetchReservations(el.id);
