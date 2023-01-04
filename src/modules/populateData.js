@@ -26,7 +26,7 @@ const populateData = async () => {
                 <button class="btn btn-comments" type="button" id=${show.externals.thetvdb}>
                   comments
               </button>
-                <button type="button" class="btn btn-reservations" id="${element.show.externals.thetvdb}">Reservations</button>
+                <button type="button" class="btn btn-reservations" id="${element.show.externals.imdb}">Reservations</button>
               </div>
             </div>`;
     const box = parser.parseFromString(domElements, 'text/html').body.firstChild;
