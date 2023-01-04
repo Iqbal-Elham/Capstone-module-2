@@ -58,7 +58,7 @@ const populateData = async () => {
             <p>Country: ${reservs.network.country.name}</p>
           </div>
         </div>
-        <div class="popup-comments">
+        <div class="popup-reservations">
           <h3>Reservations(2)</h3>
           <div class="list-of-comments">
             <p>01/03/2023: Someone Reserved yesterday</p>
