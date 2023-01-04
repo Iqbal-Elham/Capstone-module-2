@@ -3,7 +3,6 @@ import {
   showMenuItems,
   closePopup,
   closeReservation,
-  // displayComment,
 } from './modules/eventHandler.js';
 import populateData from './modules/populateData.js';
 
