@@ -101,7 +101,7 @@ const populateData = async () => {
       </form>
       </div>`;
       popupSection.innerHTML = displayCom;
-     });
+    });
   });
   document.querySelectorAll('.btn-reservation').forEach((el) => {
     el.addEventListener('click', async () => {
