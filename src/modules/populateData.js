@@ -1,4 +1,4 @@
-import { movieDetail, shownMovies, reservationSection} from './constants.js';
+import { movieDetail, shownMovies, reservationSection } from './constants.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
@@ -35,12 +35,11 @@ const populateData = async () => {
   const counter = countMovie('box');
   shownMovies.innerText = `Shows(${counter})`;
 
-  document.querySelectorAll('.btn-reservation').forEach(function (el) {
+  document.querySelectorAll('.btn-reservation').forEach((el) => {
     el.addEventListener('click', async () => {
       const reservs = await fetchReservations(el.id);
       reservationSection.classList.remove('hide-reservation');
-      console.log (reservs);
-      let reservsGenerator = `<div class="reservation-container">
+      const reservsGenerator = `<div class="reservation-container">
         <button type="button" class="btn reservation-close-btn" id="close-reservation">
           <i class="fas fa-times"></i>
         </button>
@@ -79,8 +78,8 @@ const populateData = async () => {
         </form>
       </div>`;
       reservationSection.innerHTML = reservsGenerator;
-    })
-});
+    });
+  });
 };
 
 export default populateData;
