@@ -1,4 +1,4 @@
-import { movieDetail, shownMovies, reservationSection, reservationCloseBtn} from './constants.js';
+import { movieDetail, shownMovies, reservationSection} from './constants.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
@@ -38,6 +38,8 @@ const populateData = async () => {
   document.querySelectorAll('.btn-reservation').forEach(function (el) {
     el.addEventListener('click', async () => {
       const reservs = await fetchReservations(el.id);
+      reservationSection.classList.remove('hide-reservation');
+      console.log (reservs);
       let reservsGenerator = `<div class="reservation-container">
         <button type="button" class="btn reservation-close-btn" id="close-reservation">
           <i class="fas fa-times"></i>
@@ -51,9 +53,10 @@ const populateData = async () => {
         <div class="reservation-description">
           <h3>${reservs.name}</h3>
           <div class="reservations">
-            <p>Genre 1: something</p>
-            <p>Duration 1: something</p>
-            <p>Rating 1: something</p>
+            <p>Genres: ${reservs.genres}</p>
+            <p>Language: ${reservs.language}</p>
+            <p>Premiered: ${reservs.premiered}</p>
+            <p>Country: ${reservs.network.country.name}</p>
           </div>
         </div>
         <div class="popup-comments">
@@ -78,13 +81,6 @@ const populateData = async () => {
       reservationSection.innerHTML = reservsGenerator;
     })
 });
-
-const closeReservation = () => {
-  reservationCloseBtn.addEventListener('click', () => {
-    reservationSection.classList.add('hide-reservation');
-  });
-};
-
 };
 
 export default populateData;

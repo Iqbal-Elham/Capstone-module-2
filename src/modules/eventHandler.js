@@ -8,11 +8,14 @@ const closePopup = () => {
   });
 };
 
-// const closeReservation = () => {
-//   reservationCloseBtn.addEventListener('click', () => {
-//     reservationSection.classList.add('hide-reservation');
-//   });
-// };
+const closeReservation = () => {
+  reservationSection.addEventListener('click', (e) => {
+    if (e.target.className === "btn reservation-close-btn" || e.target.className === "fas fa-times"){
+      console.log('click');
+      reservationSection.classList.add('hide-reservation');
+    }
+  });
+};
 
 const showMenuItems = () => {
   navToggle.addEventListener('click', () => {
@@ -20,4 +23,4 @@ const showMenuItems = () => {
   });
 };
 
-export { showMenuItems, closePopup};
+export { showMenuItems, closePopup, closeReservation };
