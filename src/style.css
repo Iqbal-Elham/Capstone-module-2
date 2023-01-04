@@ -258,6 +258,7 @@ nav {
 /* POPUP SECTION */
 .popup-section {
   background: black;
+  display: none;
 }
 
 .popup-img,
@@ -296,9 +297,25 @@ nav {
   gap: 0.3rem;
 }
 
-.popup-container,
+.popup-container {
+  background: #e0e0e6;
+  position: fixed;
+  top: 55%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  color: var(--color-black);
+  border-radius: 1rem;
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+  opacity: 1;
+  z-index: 99;
+  padding: 2rem 0;
+  margin: 0 2rem 2rem 2rem;
+}
+
 .reservation-container {
-  /* display: none; */
+  display: none;
   background: #e0e0e6;
   position: fixed;
   top: 55%;
@@ -385,10 +402,6 @@ textarea::placeholder {
   justify-content: center;
   opacity: 0.9;
   cursor: pointer;
-}
-
-.popup-section.hide-movie {
-  display: none;
 }
 
 .reservation-section.hide-reservation {

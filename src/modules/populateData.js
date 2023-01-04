@@ -1,4 +1,11 @@
-import { movieDetail, shownMovies, reservationSection } from './constants.js';
+import {
+  movieDetail,
+  shownMovies,
+  popupSection,
+  selectedCommentUrl,
+  reservationSection,
+} from './constants.js';
+
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
@@ -22,7 +29,7 @@ const populateData = async () => {
                 </div>
               </div>
               <div class="btn-container" data-index="${index}" role="button">
-                <button class="btn btn-comments" type="button" id=${show.externals.thetvdb}>
+                <button class="btn btn-comments" id=${show.externals.thetvdb}>
                   comments
               </button>
                 <button type="button" class="btn btn-reservation" id="${element.show.externals.imdb}">Reservations</button>
@@ -35,6 +42,67 @@ const populateData = async () => {
   const counter = countMovie('box');
   shownMovies.innerText = `Shows(${counter})`;
 
+  const btn = document.querySelectorAll('.btn-comments');
+  btn.forEach((el) => {
+    el.addEventListener('click', async (e) => {
+      popupSection.style.display = 'block';
+      const item = await fetch(`${selectedCommentUrl}${e.target.id}`)
+        .then((response) => response.json());
+      const displayCom = `<div class="popup-container">
+      <button type="button" class="btn comments-close-btn" id="movie-close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="popup-img">
+        <img
+          src="${item.image.original}"
+          alt="${item.name}"
+        />
+      </div>
+      <div class="title-description">
+        <h3>${item.name}</h3>
+        <div class="popup-description">
+        <p>Genres: ${item.genres}</p>
+        <p>Language: ${item.language}</p>
+        <p>Premiered: ${item.premiered}</p>
+        <p>Country: ${item.network.country.name}</p>
+        </div>
+      </div>
+      <div class="popup-comments">
+        <h3>Comments(2)</h3>
+        <div class="list-of-comments">
+          <p>12/29/2022: Someone commented yesterday</p>
+          <p>12/30/2022: Someone commented today</p>
+        </div>
+      </div>
+      <form method="post" class="add-comments">
+        <h3>Add Comments</h3>
+        <div class="input-field">
+          <input
+            type="text"
+            placeholder="Your name"
+            class="input"
+            name="name"
+            id="name"
+          />
+        </div>
+        <div class="input-field">
+          <textarea
+            name="text-area"
+            id="text-area"
+            class="input"
+            cols="30"
+            rows="5"
+            placeholder="Your comments"
+          ></textarea>
+        </div>
+        <div class="btn-container">
+          <button type="submit" class="btn" id="submit">Submit</button>
+        </div>
+      </form>
+      </div>`;
+      popupSection.innerHTML = displayCom;
+    });
+  });
   document.querySelectorAll('.btn-reservation').forEach((el) => {
     el.addEventListener('click', async () => {
       const reservs = await fetchReservations(el.id);
