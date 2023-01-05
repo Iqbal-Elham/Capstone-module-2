@@ -19,4 +19,5 @@ populateData()
     showMenuItems();
   });
 closePopup();
+populateData();
 closeReservation();

@@ -11,6 +11,8 @@ import { addComment } from './commentFetch.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
+import dataForm from './dataForm.js';
+import fetchSchedule from './fetchSchedule.js';
 import fetchLikes from './fetchLikes.js';
 
 const populateData = async () => {
@@ -147,26 +149,59 @@ const populateData = async () => {
             <p>Country: ${reservs.network.country.name}</p>
           </div>
         </div>
-        <div class="popup-comments">
+        <div class="popup-reservations">
           <h3>Reservations(2)</h3>
-          <div class="list-of-comments">
-            <p>01/03/2023: Someone Reserved yesterday</p>
-            <p>01/03/2023: Someone Reserved today</p>
+          <div class="list-of-reservations">
           </div>
         </div>
         <form method="post" class="add-reservation">
-          <h3>Reserve</h3>
-          <div class="input-field"><input type="text" placeholder="Your name" class="input" name="name" id="name"/>
+          <h3>Add a reservation</h3>
+          <div class="input-field">
+          <input type="text" placeholder="Your name" class="input" name="name" id="nameReservation"/>
           </div>
-          <div class="input-field"><textarea name="text-area" id="text-area" class="input"
-              cols="30" rows="5" placeholder="Reserve"></textarea>
+          <div class="input-field">
+          <label for="startDate">Start date:</label>
+          <input type="text" placeholder="yyyy-mm-dd" class="input" name="startDate" id="startDate"/>
+          </div>
+          <div class="input-field">
+          <label for="endDate">End date:</label>
+          <input type="text" placeholder="yyyy-mm-dd" class="input" name="endDate" id="endDate"/>
           </div>
           <div class="btn-container">
             <button type="submit" class="btn" id="reserve">Reserve</button>
+            <p class="alarm-form-reservations"></p>
           </div>
         </form>
       </div>`;
       reservationSection.innerHTML = reservsGenerator;
+      const reserveSubmit = document.getElementById('reserve');
+      reserveSubmit.addEventListener('click', (event) => {
+        const alarmFormReservations = document.querySelector('.alarm-form-reservations');
+        const nameReservation = document.getElementById('nameReservation').value;
+        const startReservation = document.getElementById('startDate').value;
+        const endReservation = document.getElementById('endDate').value;
+        if (nameReservation && startReservation && endReservation) {
+          alarmFormReservations.innerHTML = '';
+          const regEx = /^\d{4}-\d{2}-\d{2}$/;
+          if (startReservation.match(regEx) && endReservation.match(regEx)) {
+            alarmFormReservations.innerHTML = 'Reservation Completed';
+            dataForm(event, el.id, nameReservation, startReservation, endReservation);
+          } else {
+            alarmFormReservations.innerHTML = '*Date format has to be yyyy-mm-dd';
+            event.preventDefault();
+          }
+        } else {
+          alarmFormReservations.innerHTML = '*All fields need be populated';
+          event.preventDefault();
+        }
+      });
+      const scheduleReservs = await fetchSchedule(el.id);
+      let scheduleGenerator = '';
+      scheduleReservs.forEach((element) => {
+        scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+      });
+      const listOfReservations = document.querySelector('.list-of-reservations');
+      listOfReservations.innerHTML = scheduleGenerator;
     });
   });
 };
