@@ -22,7 +22,7 @@ describe('Test the comment counter method', () => {
       ]),
     ).toEqual(3);
   });
-  it('count the array length: 3', () => {
+  it('count the array length: 2', () => {
     expect(
       commentCounter([
         {
@@ -38,7 +38,7 @@ describe('Test the comment counter method', () => {
       ]),
     ).toEqual(2);
   });
-  it('count the array length: 3', () => {
+  it('count the array length: 0', () => {
     expect(
       commentCounter([]),
     ).toEqual(0);
