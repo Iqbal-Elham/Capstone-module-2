@@ -182,12 +182,11 @@ nav {
 .box-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
 .box-container .box {
   padding-bottom: 1rem;
-  background: black;
   background: var(--color-white);
   border-radius: 0.5rem;
   border: 1px solid var(--color-indigo);
@@ -301,7 +300,6 @@ nav {
 
 .popup-container,
 .reservation-container {
-  /* display: none; */
   background: var(--color-white);
   position: fixed;
   top: 50%;
@@ -585,7 +583,7 @@ textarea::placeholder {
 
   /* Movie Section */
   .movie-section {
-    margin: 10rem 8rem 2rem;
+    margin: 12rem 10rem 2rem;
   }
 
   .popup-img img,
@@ -692,6 +690,6 @@ textarea::placeholder {
   }
 
   .footer-container {
-    margin: auto 124px;
+    margin: auto 10rem;
   }
 }
