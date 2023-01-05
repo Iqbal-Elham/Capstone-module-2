@@ -1,3 +1,4 @@
+import commentCounter from './commentCounter.js';
 import {
   navToggle, navLinks, popupSection, reservationSection, dateHandler,
 } from './constants.js';
@@ -29,12 +30,20 @@ const currentYearHandler = () => {
   const currentYear = date.getFullYear();
   dateHandler.textContent = currentYear;
 };
+
 const commentHandler = (getCom, allComments) => {
   getCom.forEach((com) => {
-    const display = `<h4>${com.username} ${com.creation_date}</h4>
-                      <p>${com.comment}</p>`;
+    const display = `
+    <div class="comment-div">
+    <h4>${com.username} ${com.creation_date}</h4>
+    <p>${com.comment}</p>
+    </div>`;
     allComments.innerHTML += display;
   });
+};
+
+const headerHandler = (div, header) => {
+  header.innerHTML = `Comments ${commentCounter(div)}`;
 };
 
 export {
@@ -43,4 +52,5 @@ export {
   closeReservation,
   currentYearHandler,
   commentHandler,
+  headerHandler,
 };

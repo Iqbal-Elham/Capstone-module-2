@@ -5,15 +5,15 @@ import {
   selectedCommentUrl,
   reservationSection,
 } from './constants.js';
-
 import { addComment, getComment } from './commentFetch.js';
-import { commentHandler } from './eventHandler.js';
+import { commentHandler, headerHandler } from './eventHandler.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
 import dataForm from './dataForm.js';
 import fetchSchedule from './fetchSchedule.js';
 import fetchLikes from './fetchLikes.js';
+import counterReservations from './counterReservations.js';
 
 const populateData = async () => {
   const data = await fetchMovie('d');
@@ -36,7 +36,6 @@ const populateData = async () => {
               </div>
               <div class="box-desc">
                 <h4>${show.name}</h4>
-                
                 <div class="likes" data-id="${show.id}" role="button">          
                   <a href="#" class="like-btn"><i class="fa-regular fa-heart fa-solid"></i></a>
                  <p>${likeCount}</p>
@@ -44,7 +43,7 @@ const populateData = async () => {
               </div>
               <div class="btn-container" data-index="${index}" role="button">
                 <button class="btn btn-comments" id=${show.externals.thetvdb}>
-                  comments
+                  Comments
               </button>
                 <button type="button" class="btn btn-reservation" id="${element.show.externals.imdb}">Reservations</button>
               </div>
@@ -84,7 +83,7 @@ const populateData = async () => {
         </div>
       </div>
       <div class="popup-comments">
-        <h3>Comments(2)</h3>
+        <h3 class="comment-header"></h3>
         <div class="list-of-comments">
           
         </div>
@@ -116,9 +115,12 @@ const populateData = async () => {
       </form>
       </div>`;
       popupSection.innerHTML = displayCom;
+      const commentHeader = document.querySelector('.comment-header');
       const allComments = document.querySelector('.list-of-comments');
       let getCom = await getComment(itemId);
       commentHandler(getCom, allComments);
+      let commentDiv = document.querySelectorAll('.comment-div');
+      headerHandler(commentDiv, commentHeader);
       const commentForm = document.querySelector('.add-comments');
       const commenter = document.querySelector('#commenter-name');
       const commentText = document.querySelector('#comment-text');
@@ -126,8 +128,11 @@ const populateData = async () => {
         e.preventDefault();
         await addComment(itemId, commenter.value, commentText.value);
         allComments.innerHTML = '';
+        commentHeader.innerHTML = '';
         getCom = await getComment(itemId);
         commentHandler(getCom, allComments);
+        commentDiv = document.querySelectorAll('.comment-div');
+        headerHandler(commentDiv, commentHeader);
         commentForm.reset();
       });
     });
@@ -157,7 +162,7 @@ const populateData = async () => {
           </div>
         </div>
         <div class="popup-reservations">
-          <h3>Reservations(2)</h3>
+          <h3>Reservations<span id="counter-reservations"></span></h3>
           <div class="list-of-reservations">
           </div>
         </div>
@@ -196,10 +201,15 @@ const populateData = async () => {
             const scheduleReservs = await fetchSchedule(el.id);
             let scheduleGenerator = '';
             scheduleReservs.forEach((element) => {
-              scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+              scheduleGenerator += `<p class="counterR">${element.date_start}/${element.date_end} by ${element.username}</p>`;
             });
             const listOfReservations = document.querySelector('.list-of-reservations');
             listOfReservations.innerHTML = scheduleGenerator;
+
+            const arrayCounter = document.querySelectorAll('.counterR');
+            const numberReservation = counterReservations(arrayCounter);
+            const counterReserv = document.getElementById('counter-reservations');
+            counterReserv.innerHTML = `(${numberReservation})`;
           } else {
             alarmFormReservations.innerHTML = '*Date format has to be yyyy-mm-dd';
             event.preventDefault();
@@ -212,10 +222,15 @@ const populateData = async () => {
       const scheduleReservs = await fetchSchedule(el.id);
       let scheduleGenerator = '';
       scheduleReservs.forEach((element) => {
-        scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+        scheduleGenerator += `<p class="counterR">${element.date_start}/${element.date_end} by ${element.username}</p>`;
       });
       const listOfReservations = document.querySelector('.list-of-reservations');
       listOfReservations.innerHTML = scheduleGenerator;
+
+      const arrayCounter = document.querySelectorAll('.counterR');
+      const numberReservation = counterReservations(arrayCounter);
+      const counterReserv = document.getElementById('counter-reservations');
+      counterReserv.innerHTML = `(${numberReservation})`;
     });
   });
 };
