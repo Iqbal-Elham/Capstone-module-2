@@ -32,10 +32,11 @@ const populateData = async () => {
               </div>
               <div class="box-desc">
                 <h4>${show.name}</h4>
-                <div class="likes" data-id="${show.id}">
+                
+                <div class="likes" data-id="${show.id}" role="button">          
                   <a href="#" class="like-btn"><i class="fa-regular fa-heart"></i></a>
-                  <small>${likeCount}</small>
-                </div>
+                 <p>${likeCount}</p>
+                </div>    
               </div>
               <div class="btn-container" data-index="${index}" role="button">
                 <button class="btn btn-comments" id=${show.externals.thetvdb}>
