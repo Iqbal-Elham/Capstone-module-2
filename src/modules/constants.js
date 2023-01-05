@@ -15,3 +15,5 @@ export const reservationsURL = 'https://api.tvmaze.com/lookup/shows?imdb=';
 export const commentForm = document.querySelector('.add-comments');
 export const commenter = document.querySelector('#commenter-name');
 export const commentText = document.querySelector('#comment-text');
+export const uniqueUserAPIsID = 'milQHnStnYxG5awlXqqf';
+export const likedMovieURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${uniqueUserAPIsID}/likes/`;

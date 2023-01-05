@@ -11,13 +11,22 @@ import { addComment } from './commentFetch.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
+import fetchLikes from './fetchLikes.js';
 
 const populateData = async () => {
   const data = await fetchMovie('s');
+  const likes = await fetchLikes();
   const fragment = new DocumentFragment();
   const parser = new DOMParser();
   data.forEach((element, index) => {
     const { show } = element;
+    const item = likes.find((e) => e.item_id === show.id);
+
+    let likeCount = 0;
+    if (item) {
+      likeCount = item.likes;
+    }
+
     const domElements = `
             <div class="box" data-id=${element.show.id}>
               <div class="box-img">
@@ -25,9 +34,9 @@ const populateData = async () => {
               </div>
               <div class="box-desc">
                 <h4>${show.name}</h4>
-                <div class="likes" data-id="${element.show.id}">
+                <div class="likes" data-id="${show.id}">
                   <a href="#" class="like-btn"><i class="fa-regular fa-heart"></i></a>
-                  <small>${element.show.id} likes</small>
+                  <small>${likeCount}</small>
                 </div>
               </div>
               <div class="btn-container" data-index="${index}" role="button">
@@ -40,6 +49,7 @@ const populateData = async () => {
     const box = parser.parseFromString(domElements, 'text/html').body.firstChild;
     fragment.appendChild(box);
   });
+
   movieDetail.appendChild(fragment);
   const counter = countMovie('box');
   shownMovies.innerText = `Shows(${counter})`;
@@ -113,6 +123,7 @@ const populateData = async () => {
       });
     });
   });
+
   document.querySelectorAll('.btn-reservation').forEach((el) => {
     el.addEventListener('click', async () => {
       const reservs = await fetchReservations(el.id);
