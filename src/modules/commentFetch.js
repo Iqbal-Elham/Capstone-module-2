@@ -14,8 +14,10 @@ const addComment = async (itemId, user, com) => {
 
 const getComment = async (itemId) => {
   const response = await fetch(`${commentURL}?item_id=${itemId}`);
-  const data = await response.json();
-  return data;
+  if (response.status !== 400) {
+    return response.json();
+  }
+  return [];
 };
 
 export { addComment, getComment };

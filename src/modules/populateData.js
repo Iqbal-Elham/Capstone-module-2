@@ -6,8 +6,8 @@ import {
   reservationSection,
 } from './constants.js';
 
-import { addComment } from './commentFetch.js';
-// import { postComment } from './eventHandler.js';
+import { addComment, getComment } from './commentFetch.js';
+import { commentHandler } from './eventHandler.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
@@ -85,8 +85,7 @@ const populateData = async () => {
       <div class="popup-comments">
         <h3>Comments(2)</h3>
         <div class="list-of-comments">
-          <p>12/29/2022: Someone commented yesterday</p>
-          <p>12/30/2022: Someone commented today</p>
+          
         </div>
       </div>
       <form method="post" class="add-comments">
@@ -97,6 +96,7 @@ const populateData = async () => {
             placeholder="Your name"
             class="input"
             id="commenter-name"
+            required
           />
         </div>
         <div class="input-field">
@@ -106,6 +106,7 @@ const populateData = async () => {
             cols="30"
             rows="5"
             placeholder="Your comments"
+            required
           ></textarea>
         </div>
         <div class="btn-container">
@@ -114,14 +115,19 @@ const populateData = async () => {
       </form>
       </div>`;
       popupSection.innerHTML = displayCom;
+      const allComments = document.querySelector('.list-of-comments');
+      let getCom = await getComment(itemId);
+      commentHandler(getCom, allComments);
       const commentForm = document.querySelector('.add-comments');
       const commenter = document.querySelector('#commenter-name');
       const commentText = document.querySelector('#comment-text');
       commentForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        addComment(itemId, commenter.value, commentText.value);
-        commenter.value = '';
-        commentText.value = '';
+        await addComment(itemId, commenter.value, commentText.value);
+        allComments.innerHTML = '';
+        getCom = await getComment(itemId);
+        commentHandler(getCom, allComments);
+        commentForm.reset();
       });
     });
   });
