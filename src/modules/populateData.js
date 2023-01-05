@@ -44,7 +44,7 @@ const populateData = async () => {
               </div>
               <div class="btn-container" data-index="${index}" role="button">
                 <button class="btn btn-comments" id=${show.externals.thetvdb}>
-                  comments
+                  Comments
               </button>
                 <button type="button" class="btn btn-reservation" id="${element.show.externals.imdb}">Reservations</button>
               </div>
