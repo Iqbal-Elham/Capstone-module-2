@@ -13,6 +13,7 @@ import fetchReservations from './fetchReservations.js';
 import dataForm from './dataForm.js';
 import fetchSchedule from './fetchSchedule.js';
 import fetchLikes from './fetchLikes.js';
+import counterReservations from './counterReservations.js';
 
 const populateData = async () => {
   const data = await fetchMovie('s');
@@ -160,7 +161,7 @@ const populateData = async () => {
           </div>
         </div>
         <div class="popup-reservations">
-          <h3>Reservations(2)</h3>
+          <h3>Reservations<span id="counter-reservations"></span></h3>
           <div class="list-of-reservations">
           </div>
         </div>
@@ -199,10 +200,15 @@ const populateData = async () => {
             const scheduleReservs = await fetchSchedule(el.id);
             let scheduleGenerator = '';
             scheduleReservs.forEach((element) => {
-              scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+              scheduleGenerator += `<p class="counterR">${element.date_start}/${element.date_end} by ${element.username}</p>`;
             });
             const listOfReservations = document.querySelector('.list-of-reservations');
             listOfReservations.innerHTML = scheduleGenerator;
+
+            const arrayCounter = document.querySelectorAll('.counterR');
+            const numberReservation = counterReservations(arrayCounter);
+            const counterReserv = document.getElementById('counter-reservations');
+            counterReserv.innerHTML = `(${numberReservation})`;
           } else {
             alarmFormReservations.innerHTML = '*Date format has to be yyyy-mm-dd';
             event.preventDefault();
@@ -215,10 +221,15 @@ const populateData = async () => {
       const scheduleReservs = await fetchSchedule(el.id);
       let scheduleGenerator = '';
       scheduleReservs.forEach((element) => {
-        scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+        scheduleGenerator += `<p class="counterR">${element.date_start}/${element.date_end} by ${element.username}</p>`;
       });
       const listOfReservations = document.querySelector('.list-of-reservations');
       listOfReservations.innerHTML = scheduleGenerator;
+
+      const arrayCounter = document.querySelectorAll('.counterR');
+      const numberReservation = counterReservations(arrayCounter);
+      const counterReserv = document.getElementById('counter-reservations');
+      counterReserv.innerHTML = `(${numberReservation})`;
     });
   });
 };
