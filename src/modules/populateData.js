@@ -119,7 +119,8 @@ const populateData = async () => {
       const allComments = document.querySelector('.list-of-comments');
       let getCom = await getComment(itemId);
       commentHandler(getCom, allComments);
-      headerHandler(getCom, commentHeader);
+      let commentDiv = document.querySelectorAll('.comment-div');
+      headerHandler(commentDiv, commentHeader);
       const commentForm = document.querySelector('.add-comments');
       const commenter = document.querySelector('#commenter-name');
       const commentText = document.querySelector('#comment-text');
@@ -129,8 +130,9 @@ const populateData = async () => {
         allComments.innerHTML = '';
         commentHeader.innerHTML = '';
         getCom = await getComment(itemId);
-        headerHandler(getCom, commentHeader);
         commentHandler(getCom, allComments);
+        commentDiv = document.querySelectorAll('.comment-div');
+        headerHandler(commentDiv, commentHeader);
         commentForm.reset();
       });
     });

@@ -33,14 +33,17 @@ const currentYearHandler = () => {
 
 const commentHandler = (getCom, allComments) => {
   getCom.forEach((com) => {
-    const display = `<h4>${com.username} ${com.creation_date}</h4>
-                      <p>${com.comment}</p>`;
+    const display = `
+    <div class="comment-div">
+    <h4>${com.username} ${com.creation_date}</h4>
+    <p>${com.comment}</p>
+    </div>`;
     allComments.innerHTML += display;
   });
 };
 
-const headerHandler = (getCom, header) => {
-  header.innerHTML = `Comments ${commentCounter(getCom)}`;
+const headerHandler = (div, header) => {
+  header.innerHTML = `Comments ${commentCounter(div)}`;
 };
 
 export {
