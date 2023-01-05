@@ -24,8 +24,17 @@ const showMenuItems = () => {
   });
 };
 
+const commentHandler = (getCom, allComments) => {
+  getCom.forEach((com) => {
+    const display = `<h4>${com.username} ${com.creation_date}</h4>
+                      <p>${com.comment}</p>`;
+    allComments.innerHTML += display;
+  });
+};
+
 export {
   showMenuItems,
   closePopup,
   closeReservation,
+  commentHandler,
 };
