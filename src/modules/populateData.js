@@ -38,7 +38,7 @@ const populateData = async () => {
                 <h4>${show.name}</h4>
                 <div class="likes" data-id="${show.id}" role="button">          
                   <a href="#" class="like-btn"><i class="fa-regular fa-heart fa-solid"></i></a>
-                 <p>${likeCount}</p>
+                <p>${likeCount}</p>
                 </div>    
               </div>
               <div class="btn-container" data-index="${index}" role="button">
@@ -110,7 +110,7 @@ const populateData = async () => {
           ></textarea>
         </div>
         <div class="btn-container">
-          <button type="submit" class="btn" id="${e.target.id}">Submit</button>
+          <button type="submit" class="btn" id="${e.target.id}">Comment</button>
         </div>
       </form>
       </div>`;

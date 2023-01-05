@@ -39,25 +39,28 @@ After you're finished please remove all the comments and instructions!
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Capstone-Module-2 ](#-capstone-module-2-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [🎥 Video Demo ](#-video-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+    - [Issues](#issues)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [❓ FAQ (OPTIONAL) ](#-faq-optional-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -110,6 +113,13 @@ After you're finished please remove all the comments and instructions!
 
 
 - [Live Demo Link](https://yourdeployedapplicationlink.com)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+##  🎥 Video Demo <a name="video-demo"></a>
+
+- [Here](https://drive.google.com/file/d/1_00POc1URFVXSbLT8MkLxsEqqMkPSuMz/view?usp=sharing) is a video of the project walking you through the website and talking over the main features. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
