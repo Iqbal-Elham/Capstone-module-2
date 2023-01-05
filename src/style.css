@@ -147,13 +147,14 @@ nav {
   transition: var(--transition);
 }
 
-.likes a {
-  color: orangered;
+.likes {
+  color: var(--color-black);
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.likes a,
-.likes small {
-  font-size: 1.2rem;
+.likes i {
+  color: orangered;
 }
 
 .links a:hover {
@@ -267,6 +268,7 @@ nav {
 
 .popup-img,
 .reservation-img {
+  text-align: center;
   margin-top: 1rem;
   padding-top: 2rem;
 }
@@ -284,6 +286,7 @@ nav {
 .reservation-description {
   margin: 1rem;
   text-align: center;
+  padding: 1rem;
 }
 
 .title-description h3,
@@ -297,6 +300,7 @@ nav {
 .popup-description,
 .reservations {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 0.3rem;
 }
@@ -306,7 +310,7 @@ nav {
   /* display: none; */
   background: #e0e0e6;
   position: fixed;
-  top: 55%;
+  top: 50%;
   left: 42%;
   transform: translate(-50%, -50%);
   color: var(--color-black);
@@ -336,6 +340,15 @@ nav {
 .add-comments,
 .add-reservation {
   margin: 1.5rem;
+}
+
+.add-reservation h3 {
+  text-align: center;
+}
+
+.list-of-comments {
+  margin: 0 1rem;
+  padding: 1.2rem;
 }
 
 .input-field {
@@ -404,6 +417,19 @@ textarea::placeholder {
 
 .box-container.movie-detail {
   opacity: 0.1;
+}
+
+.detail-link {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  background: transparent;
+  color: var(--color-black);
+  padding: 0 1rem;
+  border-radius: 0.3rem;
+}
+
+.detail-link:hover {
+  color: orangered;
 }
 
 /* FOOTER SECTION */
@@ -601,7 +627,7 @@ textarea::placeholder {
 
   .title-description h3,
   .reservation-description h3 {
-    margin: 2rem 0 0;
+    margin: 1rem 0 0.5rem;
     color: #222;
   }
 
@@ -622,7 +648,7 @@ textarea::placeholder {
   .list-of-comments,
   .list-of-reservations {
     margin: 0 2rem 0;
-    padding: 1.2rem 2rem;
+    padding: 0 2rem;
   }
 
   .list-of-comments p,

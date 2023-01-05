@@ -15,7 +15,6 @@
   <title>Responsive Movie App based on TvMaize APIs</title>
   <script type="module" src="./index.js"></script>
 </head>
-
 <body>
   <nav>
     <div class="nav-center">
@@ -61,6 +60,23 @@
       <div class="popup-img">
         <img src="./assets/favicon-images/wakanda-forever.webp" alt="wakanda-forever" />
       </div>
+
+    </section>
+    <!-- COMMENTS SECTION -->
+    <section class="popup-section" id="comments">
+    </section>
+    <!-- RESERVATION SECTION -->
+    <section class="reservation-section" id="reservations">
+      <div class="reservation-container">
+        <button type="button" class="btn reservation-close-btn" id="close-reservation">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="reservation-img">
+          <img
+            src="./assets/favicon-images/wakanda-forever.webp"
+            alt="wakanda-forever"
+          />
+
       <div class="title-description">
         <h3>Movie Title</h3>
         <div class="popup-description">
@@ -81,6 +97,7 @@
         <h3>Add Comments</h3>
         <div class="input-field">
           <input type="text" placeholder="Your name" class="input" name="name" id="name" />
+
         </div>
         <div class="input-field">
           <textarea name="text-area" id="text-area" class="input" cols="30" rows="5"

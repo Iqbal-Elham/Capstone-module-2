@@ -1,10 +1,12 @@
 import {
-  navToggle, navLinks, movieCloseBtn, popupSection, reservationSection,
+  navToggle, navLinks, popupSection, reservationSection,
 } from './constants.js';
 
 const closePopup = () => {
-  movieCloseBtn.addEventListener('click', () => {
-    popupSection.classList.add('hide-movie');
+  popupSection.addEventListener('click', (e) => {
+    if (e.target.className === 'btn comments-close-btn' || e.target.className === 'fas fa-times') {
+      popupSection.style.display = 'none';
+    }
   });
 };
 
@@ -22,4 +24,8 @@ const showMenuItems = () => {
   });
 };
 
-export { showMenuItems, closePopup, closeReservation };
+export {
+  showMenuItems,
+  closePopup,
+  closeReservation,
+};
