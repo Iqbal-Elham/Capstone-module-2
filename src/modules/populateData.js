@@ -175,7 +175,7 @@ const populateData = async () => {
       </div>`;
       reservationSection.innerHTML = reservsGenerator;
       const reserveSubmit = document.getElementById('reserve');
-      reserveSubmit.addEventListener('click', (event) => {
+      reserveSubmit.addEventListener('click', async (event) => {
         const alarmFormReservations = document.querySelector('.alarm-form-reservations');
         const nameReservation = document.getElementById('nameReservation').value;
         const startReservation = document.getElementById('startDate').value;
@@ -185,7 +185,14 @@ const populateData = async () => {
           const regEx = /^\d{4}-\d{2}-\d{2}$/;
           if (startReservation.match(regEx) && endReservation.match(regEx)) {
             alarmFormReservations.innerHTML = 'Reservation Completed';
-            dataForm(event, el.id, nameReservation, startReservation, endReservation);
+            await dataForm(event, el.id, nameReservation, startReservation, endReservation);
+            const scheduleReservs = await fetchSchedule(el.id);
+            let scheduleGenerator = '';
+            scheduleReservs.forEach((element) => {
+              scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+            });
+            const listOfReservations = document.querySelector('.list-of-reservations');
+            listOfReservations.innerHTML = scheduleGenerator;
           } else {
             alarmFormReservations.innerHTML = '*Date format has to be yyyy-mm-dd';
             event.preventDefault();
