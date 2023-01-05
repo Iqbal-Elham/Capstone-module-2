@@ -22,3 +22,4 @@ populateData()
 closePopup();
 closeReservation();
 currentYearHandler();
+populateData();

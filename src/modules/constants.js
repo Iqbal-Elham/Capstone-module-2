@@ -12,6 +12,11 @@ export const selectedCommentUrl = 'https://api.tvmaze.com/lookup/shows?thetvdb='
 export const commentURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/xK5LmH1OlvUhFH39ssaa/comments';
 export const btn = document.querySelector('.btn-comments');
 export const reservationsURL = 'https://api.tvmaze.com/lookup/shows?imdb=';
+export const postURLreservations = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/xK5LmH1OlvUhFH39ssaa/reservations/';
+export const getURLreservation = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/xK5LmH1OlvUhFH39ssaa/reservations?item_id=';
+export const commentForm = document.querySelector('.add-comments');
+export const commenter = document.querySelector('#commenter-name');
+export const commentText = document.querySelector('#comment-text');
 export const uniqueUserAPIsID = 'milQHnStnYxG5awlXqqf';
 export const likedMovieURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${uniqueUserAPIsID}/likes/`;
 export const dateHandler = document.querySelector('.year');

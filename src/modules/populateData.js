@@ -6,9 +6,13 @@ import {
   reservationSection,
 } from './constants.js';
 
+import { addComment, getComment } from './commentFetch.js';
+import { commentHandler } from './eventHandler.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
+import dataForm from './dataForm.js';
+import fetchSchedule from './fetchSchedule.js';
 import fetchLikes from './fetchLikes.js';
 
 const populateData = async () => {
@@ -57,7 +61,8 @@ const populateData = async () => {
   btn.forEach((el) => {
     el.addEventListener('click', async (e) => {
       popupSection.style.display = 'block';
-      const item = await fetch(`${selectedCommentUrl}${e.target.id}`)
+      const itemId = e.target.id;
+      const item = await fetch(`${selectedCommentUrl}${itemId}`)
         .then((response) => response.json());
       const displayCom = `<div class="popup-container">
       <button type="button" class="btn comments-close-btn" id="movie-close-btn">
@@ -81,8 +86,7 @@ const populateData = async () => {
       <div class="popup-comments">
         <h3>Comments(2)</h3>
         <div class="list-of-comments">
-          <p>12/29/2022: Someone commented yesterday</p>
-          <p>12/30/2022: Someone commented today</p>
+          
         </div>
       </div>
       <form method="post" class="add-comments">
@@ -92,26 +96,40 @@ const populateData = async () => {
             type="text"
             placeholder="Your name"
             class="input"
-            name="name"
-            id="name"
+            id="commenter-name"
+            required
           />
         </div>
         <div class="input-field">
           <textarea
-            name="text-area"
-            id="text-area"
+            id="comment-text"
             class="input"
             cols="30"
             rows="5"
             placeholder="Your comments"
+            required
           ></textarea>
         </div>
         <div class="btn-container">
-          <button type="submit" class="btn" id="submit">Submit</button>
+          <button type="submit" class="btn" id="${e.target.id}">Submit</button>
         </div>
       </form>
       </div>`;
       popupSection.innerHTML = displayCom;
+      const allComments = document.querySelector('.list-of-comments');
+      let getCom = await getComment(itemId);
+      commentHandler(getCom, allComments);
+      const commentForm = document.querySelector('.add-comments');
+      const commenter = document.querySelector('#commenter-name');
+      const commentText = document.querySelector('#comment-text');
+      commentForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        await addComment(itemId, commenter.value, commentText.value);
+        allComments.innerHTML = '';
+        getCom = await getComment(itemId);
+        commentHandler(getCom, allComments);
+        commentForm.reset();
+      });
     });
   });
 
@@ -138,26 +156,66 @@ const populateData = async () => {
             <p>Country: ${reservs.network.country.name}</p>
           </div>
         </div>
-        <div class="popup-comments">
+        <div class="popup-reservations">
           <h3>Reservations(2)</h3>
-          <div class="list-of-comments">
-            <p>01/03/2023: Someone Reserved yesterday</p>
-            <p>01/03/2023: Someone Reserved today</p>
+          <div class="list-of-reservations">
           </div>
         </div>
         <form method="post" class="add-reservation">
-          <h3>Reserve</h3>
-          <div class="input-field"><input type="text" placeholder="Your name" class="input" name="name" id="name"/>
+          <h3>Add a reservation</h3>
+          <div class="input-field">
+          <input type="text" placeholder="Your name" class="input" name="name" id="nameReservation"/>
           </div>
-          <div class="input-field"><textarea name="text-area" id="text-area" class="input"
-              cols="30" rows="5" placeholder="Reserve"></textarea>
+          <div class="input-field">
+          <label for="startDate">Start date:</label>
+          <input type="text" placeholder="yyyy-mm-dd" class="input" name="startDate" id="startDate"/>
+          </div>
+          <div class="input-field">
+          <label for="endDate">End date:</label>
+          <input type="text" placeholder="yyyy-mm-dd" class="input" name="endDate" id="endDate"/>
           </div>
           <div class="btn-container">
             <button type="submit" class="btn" id="reserve">Reserve</button>
+            <p class="alarm-form-reservations"></p>
           </div>
         </form>
       </div>`;
       reservationSection.innerHTML = reservsGenerator;
+      const reserveSubmit = document.getElementById('reserve');
+      reserveSubmit.addEventListener('click', async (event) => {
+        const alarmFormReservations = document.querySelector('.alarm-form-reservations');
+        const nameReservation = document.getElementById('nameReservation').value;
+        const startReservation = document.getElementById('startDate').value;
+        const endReservation = document.getElementById('endDate').value;
+        if (nameReservation && startReservation && endReservation) {
+          alarmFormReservations.innerHTML = '';
+          const regEx = /^\d{4}-\d{2}-\d{2}$/;
+          if (startReservation.match(regEx) && endReservation.match(regEx)) {
+            alarmFormReservations.innerHTML = 'Reservation Completed';
+            await dataForm(event, el.id, nameReservation, startReservation, endReservation);
+            const scheduleReservs = await fetchSchedule(el.id);
+            let scheduleGenerator = '';
+            scheduleReservs.forEach((element) => {
+              scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+            });
+            const listOfReservations = document.querySelector('.list-of-reservations');
+            listOfReservations.innerHTML = scheduleGenerator;
+          } else {
+            alarmFormReservations.innerHTML = '*Date format has to be yyyy-mm-dd';
+            event.preventDefault();
+          }
+        } else {
+          alarmFormReservations.innerHTML = '*All fields need be populated';
+          event.preventDefault();
+        }
+      });
+      const scheduleReservs = await fetchSchedule(el.id);
+      let scheduleGenerator = '';
+      scheduleReservs.forEach((element) => {
+        scheduleGenerator += `<p>${element.date_start}/${element.date_end} by ${element.username}</p>`;
+      });
+      const listOfReservations = document.querySelector('.list-of-reservations');
+      listOfReservations.innerHTML = scheduleGenerator;
     });
   });
 };
