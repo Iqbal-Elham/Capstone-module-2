@@ -87,12 +87,22 @@ const populateData = async () => {
       reservationSection.innerHTML = reservsGenerator;
       const reserveSubmit = document.getElementById('reserve');
       reserveSubmit.addEventListener('click', (event) => {
+        const alarmFormReservations = document.querySelector('.alarm-form-reservations');
         const nameReservation = document.getElementById('nameReservation').value;
         const startReservation = document.getElementById('startDate').value;
         const endReservation = document.getElementById('endDate').value;
         if (nameReservation && startReservation && endReservation) {
-          dataForm(event, el.id, nameReservation, startReservation, endReservation);
+          alarmFormReservations.innerHTML = '';
+          const regEx = /^\d{4}-\d{2}-\d{2}$/;
+          if (startReservation.match(regEx) && endReservation.match(regEx)){
+            alarmFormReservations.innerHTML = `Reservation Completed`;
+            dataForm(event, el.id, nameReservation, startReservation, endReservation);
+          } else {
+            alarmFormReservations.innerHTML = `*Date format has to be yyyy-mm-dd`;
+            event.preventDefault();
+          }
         } else {
+          alarmFormReservations.innerHTML = `*All fields need be populated`;
           event.preventDefault();
         }
       });

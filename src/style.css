@@ -255,6 +255,11 @@ nav {
   transform: scale(0.9);
 }
 
+.alarm-form-reservations {
+  margin-top: -10px;
+  color: red;
+}
+
 /* POPUP SECTION */
 .popup-section {
   background: black;
