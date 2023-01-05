@@ -5,9 +5,8 @@ import {
   selectedCommentUrl,
   reservationSection,
 } from './constants.js';
-
 import { addComment, getComment } from './commentFetch.js';
-import { commentHandler } from './eventHandler.js';
+import { commentHandler, headerHandler } from './eventHandler.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
@@ -39,7 +38,7 @@ const populateData = async () => {
                 
                 <div class="likes" data-id="${show.id}" role="button">          
                   <a href="#" class="like-btn"><i class="fa-regular fa-heart"></i></a>
-                 <p>${likeCount}</p>
+                <p>${likeCount}</p>
                 </div>    
               </div>
               <div class="btn-container" data-index="${index}" role="button">
@@ -84,7 +83,7 @@ const populateData = async () => {
         </div>
       </div>
       <div class="popup-comments">
-        <h3>Comments(2)</h3>
+        <h3 class="comment-header"></h3>
         <div class="list-of-comments">
           
         </div>
@@ -116,9 +115,11 @@ const populateData = async () => {
       </form>
       </div>`;
       popupSection.innerHTML = displayCom;
+      const commentHeader = document.querySelector('.comment-header');
       const allComments = document.querySelector('.list-of-comments');
       let getCom = await getComment(itemId);
       commentHandler(getCom, allComments);
+      headerHandler(getCom, commentHeader);
       const commentForm = document.querySelector('.add-comments');
       const commenter = document.querySelector('#commenter-name');
       const commentText = document.querySelector('#comment-text');
@@ -126,7 +127,9 @@ const populateData = async () => {
         e.preventDefault();
         await addComment(itemId, commenter.value, commentText.value);
         allComments.innerHTML = '';
+        commentHeader.innerHTML = '';
         getCom = await getComment(itemId);
+        headerHandler(getCom, commentHeader);
         commentHandler(getCom, allComments);
         commentForm.reset();
       });
