@@ -94,15 +94,15 @@ const populateData = async () => {
         if (nameReservation && startReservation && endReservation) {
           alarmFormReservations.innerHTML = '';
           const regEx = /^\d{4}-\d{2}-\d{2}$/;
-          if (startReservation.match(regEx) && endReservation.match(regEx)){
-            alarmFormReservations.innerHTML = `Reservation Completed`;
+          if (startReservation.match(regEx) && endReservation.match(regEx)) {
+            alarmFormReservations.innerHTML = 'Reservation Completed';
             dataForm(event, el.id, nameReservation, startReservation, endReservation);
           } else {
-            alarmFormReservations.innerHTML = `*Date format has to be yyyy-mm-dd`;
+            alarmFormReservations.innerHTML = '*Date format has to be yyyy-mm-dd';
             event.preventDefault();
           }
         } else {
-          alarmFormReservations.innerHTML = `*All fields need be populated`;
+          alarmFormReservations.innerHTML = '*All fields need be populated';
           event.preventDefault();
         }
       });
