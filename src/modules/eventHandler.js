@@ -1,5 +1,5 @@
 import {
-  navToggle, navLinks, popupSection, reservationSection,
+  navToggle, navLinks, popupSection, reservationSection, dateHandler,
 } from './constants.js';
 
 const closePopup = () => {
@@ -25,8 +25,15 @@ const showMenuItems = () => {
   });
 };
 
+const currentYearHandler = () => {
+  const date = new Date();
+  const currentYear = date.getFullYear();
+  dateHandler.textContent = currentYear;
+};
+
 export {
   showMenuItems,
   closePopup,
   closeReservation,
+  currentYearHandler,
 };
