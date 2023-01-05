@@ -16,7 +16,7 @@ import fetchLikes from './fetchLikes.js';
 import counterReservations from './counterReservations.js';
 
 const populateData = async () => {
-  const data = await fetchMovie('s');
+  const data = await fetchMovie('d');
   const likes = await fetchLikes();
   const fragment = new DocumentFragment();
   const parser = new DOMParser();
@@ -36,10 +36,9 @@ const populateData = async () => {
               </div>
               <div class="box-desc">
                 <h4>${show.name}</h4>
-                
                 <div class="likes" data-id="${show.id}" role="button">          
-                  <a href="#" class="like-btn"><i class="fa-regular fa-heart"></i></a>
-                <p>${likeCount}</p>
+                  <a href="#" class="like-btn"><i class="fa-regular fa-heart fa-solid"></i></a>
+                 <p>${likeCount}</p>
                 </div>    
               </div>
               <div class="btn-container" data-index="${index}" role="button">

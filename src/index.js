@@ -16,10 +16,9 @@ populateData()
       element.addEventListener('click', () => {
         updateLikes(id, element);
       }, { once: true });
-      showMenuItems();
     });
   });
+showMenuItems();
 closePopup();
 closeReservation();
 currentYearHandler();
-populateData();
