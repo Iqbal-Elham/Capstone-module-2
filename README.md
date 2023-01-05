@@ -27,6 +27,7 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
+  <img src="./src/assets/favicon-images/murple_logo.png" alt="logo" width="150"  height="auto" />
   <img src="./src/assets/favicon-images/background-image.jpg" alt="logo" width="550"  height="auto" />
   <br/>
 
@@ -189,7 +190,9 @@ You can deploy this project using:
 > [000webhost](https://www.000webhost.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+### Issues
+To create an issues for this project
+> Go to [issues page](https://github.com/Iqbal-Elham/Capstone-module-2/issues)
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
@@ -251,7 +254,7 @@ If you like this project please give it a star
 
 > Give credit to everyone who inspired your codebase.
 
-- we would like to thank Microverse Community
+- We would like to thank Microverse Community
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -264,7 +267,7 @@ If you like this project please give it a star
 
   - extracting a specific item's id when attempting to get more information from a pop-up
 
-- **What is output of this project?**
+- **What is the output of this project?**
 
   - We assessed our knowledge of JavaScript, ES6, APIs, Webpack, and AAA pattern testing from this educational project.
 
