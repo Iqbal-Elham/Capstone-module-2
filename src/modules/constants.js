@@ -14,3 +14,4 @@ export const btn = document.querySelector('.btn-comments');
 export const reservationsURL = 'https://api.tvmaze.com/lookup/shows?imdb=';
 export const uniqueUserAPIsID = 'milQHnStnYxG5awlXqqf';
 export const likedMovieURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${uniqueUserAPIsID}/likes/`;
+export const dateHandler = document.querySelector('.year');
