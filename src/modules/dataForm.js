@@ -14,7 +14,7 @@ const dataForm = async (event, id, name, start, end) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-  return response.json();
+  return response;
 };
 
 export default dataForm;
