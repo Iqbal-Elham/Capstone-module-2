@@ -19,3 +19,4 @@ export const commenter = document.querySelector('#commenter-name');
 export const commentText = document.querySelector('#comment-text');
 export const uniqueUserAPIsID = 'milQHnStnYxG5awlXqqf';
 export const likedMovieURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${uniqueUserAPIsID}/likes/`;
+export const dateHandler = document.querySelector('.year');
