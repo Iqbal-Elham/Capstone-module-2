@@ -6,6 +6,8 @@ import {
   reservationSection,
 } from './constants.js';
 
+import { addComment } from './commentFetch.js';
+// import { postComment } from './eventHandler.js';
 import fetchMovie from './fetchMovies.js';
 import countMovie from './countMovies.js';
 import fetchReservations from './fetchReservations.js';
@@ -56,7 +58,8 @@ const populateData = async () => {
   btn.forEach((el) => {
     el.addEventListener('click', async (e) => {
       popupSection.style.display = 'block';
-      const item = await fetch(`${selectedCommentUrl}${e.target.id}`)
+      const itemId = e.target.id;
+      const item = await fetch(`${selectedCommentUrl}${itemId}`)
         .then((response) => response.json());
       const displayCom = `<div class="popup-container">
       <button type="button" class="btn comments-close-btn" id="movie-close-btn">
@@ -91,14 +94,12 @@ const populateData = async () => {
             type="text"
             placeholder="Your name"
             class="input"
-            name="name"
-            id="name"
+            id="commenter-name"
           />
         </div>
         <div class="input-field">
           <textarea
-            name="text-area"
-            id="text-area"
+            id="comment-text"
             class="input"
             cols="30"
             rows="5"
@@ -106,11 +107,20 @@ const populateData = async () => {
           ></textarea>
         </div>
         <div class="btn-container">
-          <button type="submit" class="btn" id="submit">Submit</button>
+          <button type="submit" class="btn" id="${e.target.id}">Submit</button>
         </div>
       </form>
       </div>`;
       popupSection.innerHTML = displayCom;
+      const commentForm = document.querySelector('.add-comments');
+      const commenter = document.querySelector('#commenter-name');
+      const commentText = document.querySelector('#comment-text');
+      commentForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        addComment(itemId, commenter.value, commentText.value);
+        commenter.value = '';
+        commentText.value = '';
+      });
     });
   });
 
