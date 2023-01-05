@@ -28,6 +28,7 @@ const currentYearHandler = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
   dateHandler.textContent = currentYear;
+};
 const commentHandler = (getCom, allComments) => {
   getCom.forEach((com) => {
     const display = `<h4>${com.username} ${com.creation_date}</h4>

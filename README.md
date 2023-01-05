@@ -198,22 +198,20 @@ You can deploy this project using:
 
 👤 **Belay Birhanu G.**
 
-- GitHub: [@githubhandle](https://github.com/belaymit?tab=repositories)
+- GitHub: [@githubhandle](https://github.com/belaymit)
 - Twitter: [@twitterhandle](https://twitter.com/2belamit)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/belay-birhanu-144ba714b/)
 
 👤 **Iqbal Elham**
 
-- GitHub: [@githubhandle](https://github.com/belaymit?tab=repositories)
-- Twitter: [@twitterhandle](https://twitter.com/2belamit)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/belay-birhanu-144ba714b/)
+- GitHub: [@githubhandle](https://github.com/Iqbal-Elham)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/iqbal-elham-8830aa19a)
 
 
 👤 **Diego Gonzalo Cuenca Morocho**
 
-- GitHub: [@githubhandle](https://github.com/belaymit?tab=repositories)
-- Twitter: [@twitterhandle](https://twitter.com/2belamit)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/belay-birhanu-144ba714b/)
+- GitHub: [@githubhandle](https://github.com/dgcuenca)
+- LinkedIn: [LinkedIn](hlinkedin.com/in/diego-cuenca)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
