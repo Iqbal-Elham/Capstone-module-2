@@ -39,7 +39,7 @@ const populateData = async () => {
                 
                 <div class="likes" data-id="${show.id}" role="button">          
                   <a href="#" class="like-btn"><i class="fa-regular fa-heart"></i></a>
-                 <p>${likeCount}</p>
+                <p>${likeCount}</p>
                 </div>    
               </div>
               <div class="btn-container" data-index="${index}" role="button">
