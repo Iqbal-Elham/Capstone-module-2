@@ -14,7 +14,7 @@ const closePopup = () => {
 const closeReservation = () => {
   reservationSection.addEventListener('click', (e) => {
     if (e.target.className === 'btn reservation-close-btn' || e.target.className === 'fas fa-times') {
-      reservationSection.classList.add('hide-reservation');
+      reservationSection.style.display = 'none';
     }
   });
 };

@@ -141,7 +141,7 @@ const populateData = async () => {
   document.querySelectorAll('.btn-reservation').forEach((el) => {
     el.addEventListener('click', async () => {
       const reservs = await fetchReservations(el.id);
-      reservationSection.classList.remove('hide-reservation');
+      reservationSection.style.display = 'block';
       const reservsGenerator = `<div class="reservation-container">
         <button type="button" class="btn reservation-close-btn" id="close-reservation">
           <i class="fas fa-times"></i>
@@ -196,6 +196,7 @@ const populateData = async () => {
           alarmFormReservations.innerHTML = '';
           const regEx = /^\d{4}-\d{2}-\d{2}$/;
           if (startReservation.match(regEx) && endReservation.match(regEx)) {
+            alarmFormReservations.style.color = 'green';
             alarmFormReservations.innerHTML = 'Reservation Completed';
             await dataForm(event, el.id, nameReservation, startReservation, endReservation);
             const scheduleReservs = await fetchSchedule(el.id);
@@ -211,6 +212,7 @@ const populateData = async () => {
             const counterReserv = document.getElementById('counter-reservations');
             counterReserv.innerHTML = `(${numberReservation})`;
           } else {
+            alarmFormReservations.style.color = 'red';
             alarmFormReservations.innerHTML = '*Date format has to be yyyy-mm-dd';
             event.preventDefault();
           }

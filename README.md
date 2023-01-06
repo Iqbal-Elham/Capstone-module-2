@@ -28,10 +28,9 @@ After you're finished please remove all the comments and instructions!
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
   <img src="./src/assets/favicon-images/murple_logo.png" alt="logo" width="150"  height="auto" />
-  <img src="./src/assets/favicon-images/background-image.jpg" alt="logo" width="550"  height="auto" />
   <br/>
 
-  <h3><b>Microverse README Template</b></h3>
+  <h3><b>Iqbal Belay Diego</b></h3>
 
 </div>
 

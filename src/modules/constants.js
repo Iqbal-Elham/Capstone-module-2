@@ -7,6 +7,7 @@ export const movieCloseBtn = document.querySelector('#movie-close-btn');
 export const reservationCloseBtn = document.querySelector('#close-reservation');
 export const popupSection = document.querySelector('.popup-section');
 export const reservationSection = document.querySelector('.reservation-section');
+export const nav = document.querySelector('nav');
 export const movieURL = 'https://api.tvmaze.com/search/shows?q=';
 export const selectedCommentUrl = 'https://api.tvmaze.com/lookup/shows?thetvdb=';
 export const commentURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/xK5LmH1OlvUhFH39ssaa/comments';
